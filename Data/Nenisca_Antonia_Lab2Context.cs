@@ -19,5 +19,7 @@ namespace Nenisca_Antonia_Lab2.Data
         public DbSet<Nenisca_Antonia_Lab2.Models.Author> Authors { get; set; } = default!;
         public DbSet<Nenisca_Antonia_Lab2.Models.Category> Category { get; set; } = default!;
         public IEnumerable<object> Author { get; internal set; }
+        public DbSet<Nenisca_Antonia_Lab2.Models.Member> Member { get; set; } = default!;
+        public DbSet<Nenisca_Antonia_Lab2.Models.Borrowing> Borrowing { get; set; } = default!;
     }
 }
