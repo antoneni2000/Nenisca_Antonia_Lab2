@@ -21,11 +21,12 @@ namespace Nenisca_Antonia_Lab2.Pages.Books
 
         public IActionResult OnGet()
         {
-            
-            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
-            ViewData["Author's Name"] = new SelectList(_context.Set < Author>(), "ID", "FirstName");
+            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID",
+            "PublisherName");
+            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "ID",
+            "FullName");
             var book = new Book();
-            book.BookCategories = new List<BookCategory>();
+            book.BookCategories= new List<BookCategory>();
             PopulateAssignedCategoryData(_context, book);
             return Page();
         }
@@ -33,6 +34,7 @@ namespace Nenisca_Antonia_Lab2.Pages.Books
         [BindProperty]
         public Book Book { get; set; } = default!;
 
+        // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync(string[] selectedCategories)
         {
             var newBook = new Book();
